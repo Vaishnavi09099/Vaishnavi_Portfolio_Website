@@ -13,10 +13,12 @@ export default function AboutSection() {
           // ABOUT
         </p>
         <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-2">
-          A short story.
+      
+
+A little about me.
         </h2>
         <p className="text-gray-400 text-lg mb-16">
-          Engineer, builder, and tinkerer. Here&apos;s how I got here.
+          Passionate full-stack developer, problem solver, and tech enthusiast building impactful web applications with modern technologies.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

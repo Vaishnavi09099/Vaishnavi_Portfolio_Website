@@ -18,8 +18,8 @@ export default function AchievementsSection() {
         <p className="text-cyan-400 text-sm font-mono tracking-widest mb-2">
           // ACHIEVEMENTS
         </p>
-        <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-16">
-          Highlights & accolades.
+        <h2 className="text-5xl md:text-6xl font-bold text-white mb-16">
+          Recognitions & Achievements.
         </h2>
 
         {/* Cards */}

@@ -6,8 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { personalInfo } from "../data/portfolio";
 import { ArrowUpRight } from "lucide-react";
 
-const words = ["Building the web", "Solving problems", "Shipping products", "Writing clean code"];
-
+const words = [
+  "Building web apps",
+  "Solving problems",
+  "Learning new tech",
+  "Writing clean code",
+];
 export default function HeroSection() {
   const [index, setIndex] = useState(0);
 
@@ -56,7 +60,7 @@ export default function HeroSection() {
           className="mb-8 flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300"
         >
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-          Available for new opportunities
+          Available for Internships & Opportunities
         </motion.div>
 
         {/* Name */}
@@ -68,6 +72,26 @@ export default function HeroSection() {
         >
           {personalInfo.name}
         </motion.h1>
+       <motion.h1
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.1 }}
+  className="
+    text-6xl md:text-8xl
+    font-extrabold
+    tracking-tight
+    mb-4
+    bg-gradient-to-r
+    from-cyan-400
+    via-sky-400
+    to-indigo-400
+    bg-clip-text
+    text-transparent
+    drop-shadow-[0_0_20px_rgba(56,189,248,0.35)]
+  "
+>
+  {personalInfo.tagline}
+</motion.h1>
 
         {/* Animated words */}
         <div className="flex items-center gap-3 font-mono text-2xl md:text-4xl font-bold mb-8">
@@ -80,7 +104,7 @@ export default function HeroSection() {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -30, opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="text-cyan-400 whitespace-nowrap"
+                className="whitespace-nowrap bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent"
               >
                 {words[index]}
               </motion.span>
@@ -102,6 +126,7 @@ export default function HeroSection() {
         >
           {personalInfo.subtitle}
         </motion.p>
+       
 
         {/* Buttons */}
         <motion.div

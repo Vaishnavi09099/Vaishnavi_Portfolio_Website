@@ -4,21 +4,24 @@ import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import WorkSection from "./components/WorkSection";
 import ExperienceSection from "./components/ExperienceSection";
-import SkillsSection from "./components/SkillsSection";
+
 import StackSection from "./components/StackSection";
 import AchievementsSection from "./components/AchievementSection";
 import EducationSection from "./components/Education";
 import CodingSection from "./components/CodingSection";
 import CertsSection from "./components/CertsSection";
 import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+Navbar
+
 
 export default function Home() {
   return (
-    <main className="bg-[#080c10] min-h-screen">
+    <main className="bg-[#05070E] min-h-screen">
        <Navbar />
       <HeroSection />
       <AboutSection />
-      <SkillsSection />
+     
       <WorkSection />
       <ExperienceSection />
       <StackSection />
@@ -28,6 +31,7 @@ export default function Home() {
       <CertsSection />
       <ContactSection />
       {/* baaki aate rahenge */}
+     <Footer />
     </main>
   );
 }

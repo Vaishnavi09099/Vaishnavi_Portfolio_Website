@@ -1,6 +1,5 @@
 // src/components/CertsSection.tsx
 "use client";
-
 import Image from "next/image";
 import { certifications } from "../data/portfolio";
 
@@ -12,36 +11,39 @@ export default function CertsSection() {
         <p className="text-cyan-400 text-sm font-mono tracking-widest mb-2">
           // CERTIFICATIONS
         </p>
-        <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-2">
+        <h2 className="text-5xl md:text-6xl font-bold text-white mb-2">
           Verified credentials.
         </h2>
-        <p className="text-gray-400 text-lg mb-16">
+        <p className="text-gray-400 text-lg mb-16 mt-5 tracking-wide">
           Courses and certifications I&apos;ve completed along the way.
         </p>
+        </div >
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div className="max-w-5xl mx-auto">
+         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {certifications.map((cert, i) => (
             <div
               key={i}
-              className={`group relative rounded-2xl bg-gradient-to-br ${cert.gradient} border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300 hover:-translate-y-1`}
+              className={`group relative rounded-2xl bg-gradient-to-br ${cert.gradient} border border-white/10   hover:border-white/20 transition-all duration-300 hover:-translate-y-1`}
             >
               {/* Year Badge */}
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/40 backdrop-blur text-gray-300 text-xs font-mono">
+              <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-black/40 backdrop-blur text-gray-300 text-xs font-mono">
                 {cert.year}
               </div>
 
               {/* Image Area */}
-              <div className="relative h-64 flex items-center justify-center">
+              <div className="relative flex justify-center p-2 ">
                 {cert.image ? (
-                  <Image
-                    src={cert.image}
-                    alt={cert.title}
-                    fill
-                    className="object-cover opacity-80"
-                  />
+                 <Image
+  src={cert.image}
+  alt={cert.title}
+  
+  width={300}
+  height={100}
+/>
                 ) : (
-                  <div className="flex flex-col items-center gap-2 text-cyan-400/40">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-cyan-400/40">
                     <div className="w-16 h-16 rounded-xl border border-cyan-400/20 flex items-center justify-center text-3xl">
                       📄
                     </div>
@@ -60,7 +62,7 @@ export default function CertsSection() {
                   </p>
                   <h3 className="text-white font-bold text-xl">{cert.title}</h3>
                 </div>
-                
+
                 <a
                   href={cert.link}
                   target="_blank"
@@ -73,7 +75,8 @@ export default function CertsSection() {
             </div>
           ))}
         </div>
-      </div>
+       </div>
+      
     </section>
   );
 }

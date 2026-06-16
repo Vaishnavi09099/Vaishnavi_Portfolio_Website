@@ -3,36 +3,50 @@
 export const personalInfo = {
   name: "Vaishnavi Rajawat",
   initials: "VR",
-  tagline: "Building the web",
+  tagline: "Full Stack Developer & B.Tech CSE Student",
   subtitle: "I design and ship high-performance products end-to-end — from beautiful interfaces to resilient distributed systems serving millions of users.",
   location: "Ghaziabad, India",
   email: "Vaishnavi09.099@gmail.com",
   available: true,
-  photo: "/images/photo.jpg", // apni photo yahan
+  photo: "/vaishnavi.jpeg", // apni photo yahan
 };
 
 export const stats = [
-  { value: "2+", label: "Years coding" },
-  { value: "10+", label: "Projects shipped" },
-  { value: "1k+", label: "Users impacted" },
-  { value: "99%", label: "Coffee uptime" },
+  {
+    value: "AWS",
+    label: "Certified (Data Engineer + Cloud Practitioner)",
+  },
+  {
+    value: "300+",
+    label: "DSA Problems Solved",
+  },
+  {
+    value: "4th",
+    label: "SIH Internal Evaluation Rank",
+  },
 ];
 
 export const timeline = [
-  {
-    year: "2021",
-    title: "First Line of Code",
-    desc: "Fell in love with Python. Never looked back.",
-  },
+ 
   {
     year: "2022",
-    title: "Class X",
-    desc: "Scored 94% in CBSE boards.",
+    title: "Class XII",
+    desc: "Completed CBSE Class XII with strong academic performance and interest in computer science.",
   },
   {
     year: "2024",
-    title: "B.Tech CSE",
-    desc: "Started Computer Science & Engineering.",
+    title: "B.Tech CSE Started",
+    desc: "Joined KIET Deemed to be University for Computer Science & Engineering.",
+  },
+  {
+    year: "2025",
+    title: "Technical Growth Phase",
+    desc: "Started building full-stack projects, solving DSA problems, and actively participating in technical club.",
+  },
+  {
+    year: "2025 — Present",
+    title: "Web Coordinator",
+    desc: "Leading web development activities at Kinesis Technical Society and mentoring juniors in web developent and Git/GitHub workflows.",
   },
 ];
 
@@ -97,67 +111,74 @@ export const projectFilters = ["All", "SaaS", "AI", "Mobile", "Open Source"];
 
 export const experiences = [
   {
+    title: "Web Coordinator",
+    company: "Kinesis Technical Society, KIET Deemed to be University",
+    duration: "2025 — Present",
     icon: "rocket",
-    title: "Your Role",
-    company: "Company Name",
-    duration: "2024 — Present",
+    bullets: [
+      "Conducted technical sessions and coordinated web development activities for club members",
+      "Organized a hands-on GitHub Bootcamp for first-year students covering repositories, commits, branching, and collaboration workflows",
+      "Mentored juniors in Web Development and guided them in building and managing real-world projects using Git & GitHub",
+    ],
   },
-  // aur add karo jaise badhti jao
 ];
 
 export const achievements = [
   {
     icon: "trophy",
-    value: "1st",
-    label: "Hackathon Winner",
-    sub: "Your hackathon name",
-  },
-  {
-    icon: "star",
-    value: "500+",
-    label: "GitHub Contributions",
-    sub: "Across all repos",
+    value: "Top 100",
+    label: "Hyperspace Innovation Hackathon",
+    sub: "Selected among the top 100 teams nationwide",
   },
   {
     icon: "medal",
-    value: "Top 8%",
-    label: "LeetCode Rating",
-    sub: "Globally ranked",
+    value: "4th",
+    label: "SIH Internal Evaluation",
+    sub: "Ranked 4th at institute level",
+  },
+  {
+    icon: "star",
+    value: "Award",
+    label: "Technical Brilliance",
+    sub: "Recognized by the college for technical excellence",
   },
   {
     icon: "graduation",
-    value: "8.5",
-    label: "CGPA",
-    sub: "Your College, B.Tech CSE",
+    value: "Award",
+    label: "Leadership Recognition",
+    sub: "Awarded for active contribution to technical initiatives",
   },
 ];
 
 export const education = [
   {
     icon: "book",
-    degree: "B.TECH (2ND YEAR)",
-    institution: "Your College Name",
+        type: "college", 
+    degree: "B.TECH (3RD YEAR)",
+    institution: "KIET Deemed to be University",
     stream: "Computer Science & Engineering",
     duration: "2024 — 2028",
-    score: "CGPA 8.5 / 10",
+    score: "CGPA 8.97 / 10",
     gradient: "from-slate-800 to-slate-900",
   },
   {
     icon: "school",
+        type: "school", 
     degree: "CLASS XII (SENIOR SECONDARY)",
-    institution: "Your 12th School Name",
-    stream: "PCM • CBSE / State Board",
-    duration: "2023 — 2024",
-    score: "92%",
+    institution: "Morning Star Children's Academy",
+    stream: "PCM • CBSE ",
+    duration: "2022 — 2023",
+    score: "90.2%",
     gradient: "from-indigo-950 to-slate-900",
   },
   {
     icon: "school",
+        type: "school", 
     degree: "CLASS X (SECONDARY)",
-    institution: "Your 10th School Name",
-    stream: "CBSE / State Board",
-    duration: "2021 — 2022",
-    score: "94%",
+    institution: "Morning Star Hr. Secondary School",
+    stream: "CBSE ",
+    duration: "2020 — 2021",
+    score: "93.8%",
     gradient: "from-slate-900 to-violet-950",
   },
 ];
@@ -165,27 +186,27 @@ export const education = [
 export const codingProfiles = [
   {
     platform: "LeetCode",
-    handle: "@yourhandle",
+    handle: "@Vaishnavi09099",
     stats: "X+ problems • XXXX rating",
-    link: "https://leetcode.com/yourhandle",
+    link: "https://leetcode.com/u/Vaishnavi09099/",
   },
   {
     platform: "GeeksforGeeks",
-    handle: "@yourhandle",
+    handle: "@vaishnaviw6r",
     stats: "Institute Rank X • XXX+ solved",
-    link: "https://geeksforgeeks.org/user/yourhandle",
+    link: "https://www.geeksforgeeks.org/profile/vaishnaviw6r",
   },
   {
     platform: "Codeforces",
-    handle: "@yourhandle",
+    handle: "@Vaishnavi0909",
     stats: "Pupil • Max XXXX",
-    link: "https://codeforces.com/profile/yourhandle",
+    link: "https://codeforces.com/profile/Vaishnavi0909",
   },
   {
     platform: "CodeChef",
-    handle: "@yourhandle",
+    handle: "@flash_map_13",
     stats: "X★ • Max XXXX",
-    link: "https://codechef.com/users/yourhandle",
+    link: "https://www.codechef.com/users/flash_map_13",
   },
 ];
 
@@ -198,10 +219,10 @@ export const codingStats = [
 
 export const certifications = [
   {
-    issuer: "COURSERA • META",
-    title: "Meta Front-End Developer",
+    issuer: "AMAZON WEB SERVICES",
+    title: "AWS Data Engineer Associate",
     year: "2025",
-    image: "/certificates/cert1.jpg",
+    image: "/certificates/data_engineer.png",
     link: "#",
     gradient: "from-cyan-950 to-slate-900",
   },
@@ -209,14 +230,14 @@ export const certifications = [
     issuer: "AMAZON WEB SERVICES",
     title: "AWS Cloud Practitioner",
     year: "2025",
-    image: "/certificates/cert2.jpg",
+    image: "/certificates/cloud_practitioner.png",
     link: "#",
     gradient: "from-slate-900 to-indigo-950",
   },
 ];
 
 export const socialLinks = {
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
-  twitter: "https://twitter.com/yourusername",
+  github: "https://github.com/Vaishnavi09099",
+  linkedin: "https://www.linkedin.com/in/vaishnavi-rajawat-a22552362/",
+  instagram: "https://www.instagram.com/vaish_u_913?igsh=MTJoenBvMmE0NWR4eg%3D%3D",
 };

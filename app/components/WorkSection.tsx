@@ -17,13 +17,13 @@ export default function WorkSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <p className="text-cyan-400 text-sm font-mono tracking-widest mb-2">
-          // SELECTED WORK
+          // PROJECTS
         </p>
-        <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-2">
-          Crafted with care.
+        <h2 className="text-4xl md:text-6xl font-bold text-white mb-2">
+          Things I’ve built.
         </h2>
-        <p className="text-gray-400 text-lg mb-10">
-          A few projects I&apos;m proud of — each shipped end-to-end.
+        <p className="text-gray-400 text-lg mb-10 mt-5">
+          From idea to deployment — projects I’ve built end-to-end.
         </p>
 
         {/* Filter Buttons */}

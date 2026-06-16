@@ -3,10 +3,7 @@
 
 import { education } from "../data/portfolio";
 
-const icons: Record<string, string> = {
-  book: "📖",
-  school: "🏫",
-};
+import { BookOpen, School, Medal } from 'lucide-react';
 
 export default function EducationSection() {
   return (
@@ -16,10 +13,10 @@ export default function EducationSection() {
         <p className="text-cyan-400 text-sm font-mono tracking-widest mb-2">
           // EDUCATION
         </p>
-        <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-2">
+        <h2 className="text-5xl md:text-6xl font-bold text-white mb-2">
           Academic journey.
         </h2>
-        <p className="text-gray-400 text-lg mb-16">
+        <p className="text-gray-400 text-lg mb-16 mt-5">
           Where I&apos;ve studied and what I&apos;ve earned along the way.
         </p>
 
@@ -32,9 +29,9 @@ export default function EducationSection() {
             >
               {/* Top Row */}
               <div className="flex items-start justify-between mb-6">
-                <div className="w-10 h-10 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-lg">
-                  {icons[edu.icon] ?? "🎓"}
-                </div>
+                <div className="w-10 h-10 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-cyan-400">
+  {edu.type === "college" ? <BookOpen size={18} /> : <School size={18} />}
+</div>
                 <span className="text-gray-500 text-sm font-mono">
                   {edu.duration}
                 </span>
@@ -55,7 +52,7 @@ export default function EducationSection() {
 
               {/* Score Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20">
-                <span className="text-cyan-400 text-xs">🏅</span>
+                <span className="text-cyan-400 text-xs"><Medal /></span>
                 <span className="text-cyan-400 text-xs font-semibold">
                   {edu.score}
                 </span>
