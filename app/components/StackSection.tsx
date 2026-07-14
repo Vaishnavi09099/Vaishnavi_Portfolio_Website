@@ -1,7 +1,7 @@
 // src/components/StackSection.tsx
 "use client";
 
-import { motion, useInView, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 
 type Tech = { name: string; slug: string; color: string; cat: string };
@@ -50,19 +50,16 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
     setTilt({ x: -py * 14, y: px * 14 });
   };
 
-  const rotateDir = index % 2 === 0 ? -10 : 10;
-
   return (
-    <motion.div
-      id="stack"
+    <motion.div id='stack'
       layout
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={() => setTilt({ x: 0, y: 0 })}
-      initial={{ opacity: 0, y: 24, scale: 0.9, rotate: rotateDir }}
-      animate={inView ? { opacity: 1, y: 0, scale: 1, rotate: 0 } : {}}
+      initial={{ opacity: 0, y: 24, scale: 0.9 }}
+      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ delay: index * 0.04, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ delay: index * 0.04, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       style={{ perspective: 800, minWidth: 0 }}
       className="group relative w-full"
     >
@@ -121,31 +118,31 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
               className="absolute inset-0 rounded-xl opacity-20 blur-md transition-opacity group-hover:opacity-60"
               style={{ background: `#${tech.color}` }}
             />
-            {tech.slug === "css3" ? (
-              <img
-                src="https://skillicons.dev/icons?i=css"
-                alt={tech.name}
-                loading="lazy"
-                className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
-                draggable={false}
-              />
-            ) : tech.slug === "visualstudiocode" ? (
-              <img
-                src="https://skillicons.dev/icons?i=vscode"
-                alt={tech.name}
-                loading="lazy"
-                className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
-                draggable={false}
-              />
-            ) : (
-              <img
-                src={`https://cdn.simpleicons.org/${tech.slug}/${tech.color}`}
-                alt={tech.name}
-                loading="lazy"
-                className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
-                draggable={false}
-              />
-            )}
+           {tech.slug === "css3" ? (
+  <img
+    src="https://skillicons.dev/icons?i=css"
+    alt={tech.name}
+    loading="lazy"
+    className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
+    draggable={false}
+  />
+) : tech.slug === "visualstudiocode" ? (
+  <img
+    src="https://skillicons.dev/icons?i=vscode"
+    alt={tech.name}
+    loading="lazy"
+    className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
+    draggable={false}
+  />
+) : (
+  <img
+    src={`https://cdn.simpleicons.org/${tech.slug}/${tech.color}`}
+    alt={tech.name}
+    loading="lazy"
+    className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
+    draggable={false}
+  />
+)}
           </motion.div>
 
           <div
@@ -172,61 +169,30 @@ export default function StackSection() {
   const inView = useInView(ref, { once: true, margin: "-15%" });
   const filtered = filter === "All" ? techs : techs.filter((t) => t.cat === filter);
 
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const orb1X = useTransform(scrollYProgress, [0, 1], [-60, 60]);
-  const orb1Y = useTransform(scrollYProgress, [0, 1], [-40, 40]);
-  const orb2X = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const orb2Y = useTransform(scrollYProgress, [0, 1], [30, -30]);
-
   return (
-    <section ref={sectionRef} id="stack" className="relative px-6 py-32 bg-[#080c10] overflow-hidden">
+    <section id="stack" className="relative px-6 py-32 bg-[#080c10]">
       <div className="max-w-7xl mx-auto">
+
         {/* Header */}
         <div className="mb-16 max-w-2xl">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-            className="text-cyan-400 text-sm font-mono tracking-widest mb-2"
-          >
+          <p className="text-cyan-400 text-sm font-mono tracking-widest mb-2">
             // STACK
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl md:text-6xl font-bold text-white mb-2"
-          >
+          </p>
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-2">
             My Tech Stack.
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-5 text-lg text-gray-400"
-          >
-            A collection of tools I use to build modern web applications.
-          </motion.p>
+          </h2>
+          <p className="mt-5 text-lg text-gray-400">
+           A collection of tools I use to build modern web applications.
+          </p>
         </div>
 
-        {/* Ambient orbs — drift with scroll */}
+        {/* Ambient orbs */}
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <motion.div
-            style={{ x: orb1X, y: orb1Y }}
-            className="absolute left-1/4 top-1/3 h-72 w-72 rounded-full bg-cyan-400/10 blur-[120px]"
-          />
-          <motion.div
-            style={{ x: orb2X, y: orb2Y }}
-            className="absolute right-1/4 bottom-1/4 h-72 w-72 rounded-full bg-purple-500/10 blur-[120px]"
-          />
+          <div className="absolute left-1/4 top-1/3 h-72 w-72 rounded-full bg-cyan-400/10 blur-[120px]" />
+          <div className="absolute right-1/4 bottom-1/4 h-72 w-72 rounded-full bg-purple-500/10 blur-[120px]" />
         </div>
+
+       
 
         {/* Cards Grid */}
         <div
@@ -240,6 +206,9 @@ export default function StackSection() {
             ))}
           </AnimatePresence>
         </div>
+
+       
+
       </div>
     </section>
   );
