@@ -10,11 +10,11 @@ import { ArrowUpRight } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Work", href: "#work" },
-  { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#stack" },
+ 
+
   { label: "Education", href: "#education" },
-  { label: "Coding", href: "#coding" },
+  
   { label: "Certs", href: "#certs" },
 ];
 

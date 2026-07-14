@@ -21,15 +21,33 @@ export default function ExperienceSection() {
     <section id="experience" className="relative py-24 px-4 bg-[#080c10]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <p className="text-cyan-400 text-sm font-mono tracking-widest mb-2">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="text-cyan-400 text-sm font-mono tracking-widest mb-2"
+        >
           // EXPERIENCE
-        </p>
-        <h2 className="text-5xl md:text-6xl font-bold text-white mb-2">
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-5xl md:text-6xl font-bold text-white mb-2"
+        >
           Positions of Responsibility
-        </h2>
-        <p className="text-gray-400 text-lg mb-16 mt-5">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-gray-400 text-lg mb-16 mt-5"
+        >
           Leadership roles and contributions during my academic journey.
-        </p>
+        </motion.p>
 
         {/* Experience List */}
         <div className="flex flex-col gap-4">
@@ -39,6 +57,14 @@ export default function ExperienceSection() {
               <motion.div
                 key={i}
                 layout
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: i * 0.12,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
                 onClick={() => setOpenIndex(isOpen ? null : i)}
                 className={`group cursor-pointer rounded-2xl bg-[#0d1117] border transition-all duration-300 overflow-hidden ${
                   isOpen
@@ -51,29 +77,60 @@ export default function ExperienceSection() {
                   {/* Left */}
                   <div className="flex items-center gap-4">
                     {/* Icon Circle */}
-                    <div
-                      className={`w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{
+                        duration: 0.5,
+                        delay: i * 0.12 + 0.2,
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 18,
+                      }}
+                      animate={
+                        isOpen
+                          ? { boxShadow: "0 0 0 6px rgba(34,211,238,0.12)" }
+                          : { boxShadow: "0 0 0 0px rgba(34,211,238,0)" }
+                      }
+                      className={`w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
                         isOpen
                           ? "bg-cyan-400/20 border border-cyan-400/40 text-cyan-400"
                           : "bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-400/20 text-cyan-400"
                       }`}
                     >
-                      {iconMap[exp.icon] ?? <Briefcase size={18} />}
-                    </div>
+                      <motion.div
+                        animate={{ rotate: isOpen ? 360 : 0 }}
+                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        {iconMap[exp.icon] ?? <Briefcase size={18} />}
+                      </motion.div>
+                    </motion.div>
 
                     {/* Text */}
-                    <div>
+                    <motion.div
+                      initial={{ opacity: 0, x: -15 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.5, delay: i * 0.12 + 0.3 }}
+                    >
                       <h3 className="text-white font-bold text-lg leading-tight">
                         {exp.title}
                       </h3>
                       <p className="text-gray-400 text-sm">{exp.company}</p>
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Right — Duration */}
-                  <p className="text-gray-500 text-sm font-mono flex-shrink-0">
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, delay: i * 0.12 + 0.35 }}
+                    className="text-gray-500 text-sm font-mono flex-shrink-0"
+                  >
                     {exp.duration}
-                  </p>
+                  </motion.p>
                 </div>
 
                 {/* Expanded — bullets */}
@@ -87,10 +144,16 @@ export default function ExperienceSection() {
                     >
                       <div className="border-t border-white/10 px-6 py-4 flex flex-col gap-2">
                         {exp.bullets.map((b: string, j: number) => (
-                          <div key={j} className="flex items-start gap-2">
+                          <motion.div
+                            key={j}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: j * 0.06 }}
+                            className="flex items-start gap-2"
+                          >
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0" />
                             <p className="text-gray-400 text-sm">{b}</p>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                     </motion.div>

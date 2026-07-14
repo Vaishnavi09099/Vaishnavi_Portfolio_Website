@@ -1,36 +1,39 @@
 // src/components/StackSection.tsx
 "use client";
 
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 
 type Tech = { name: string; slug: string; color: string; cat: string };
 
 const techs: Tech[] = [
-  { name: "React",      slug: "react",             color: "61DAFB", cat: "Frontend" },
-  { name: "Next.js",    slug: "nextdotjs",         color: "FFFFFF", cat: "Frontend" },
-  { name: "TypeScript", slug: "typescript",        color: "3178C6", cat: "Frontend" },
-  { name: "Tailwind",   slug: "tailwindcss",       color: "06B6D4", cat: "Frontend" },
-  { name: "Vite",       slug: "vite",              color: "646CFF", cat: "Frontend" },
-  { name: "Three.js",   slug: "threedotjs",        color: "FFFFFF", cat: "Frontend" },
-  { name: "Node.js",    slug: "nodedotjs",         color: "5FA04E", cat: "Backend" },
-  { name: "Go",         slug: "go",                color: "00ADD8", cat: "Backend" },
-  { name: "Rust",       slug: "rust",              color: "F46623", cat: "Backend" },
-  { name: "Python",     slug: "python",            color: "3776AB", cat: "Backend" },
-  { name: "GraphQL",    slug: "graphql",           color: "E10098", cat: "Backend" },
-  { name: "Bun",        slug: "bun",               color: "FBF0DF", cat: "Backend" },
-  { name: "Postgres",   slug: "postgresql",        color: "4169E1", cat: "Data" },
-  { name: "Redis",      slug: "redis",             color: "FF4438", cat: "Data" },
-  { name: "Kafka",      slug: "apachekafka",       color: "FFFFFF", cat: "Data" },
-  { name: "MongoDB",    slug: "mongodb",           color: "47A248", cat: "Data" },
-  { name: "AWS",        slug: "amazonwebservices", color: "FF9900", cat: "Infra" },
-  { name: "Docker",     slug: "docker",            color: "2496ED", cat: "Infra" },
-  { name: "Kubernetes", slug: "kubernetes",        color: "326CE5", cat: "Infra" },
-  { name: "Cloudflare", slug: "cloudflare",        color: "F38020", cat: "Infra" },
-  { name: "Terraform",  slug: "terraform",         color: "844FBA", cat: "Infra" },
-  { name: "Vercel",     slug: "vercel",            color: "FFFFFF", cat: "Infra" },
-  { name: "Git",        slug: "git",               color: "F05032", cat: "Tools" },
-  { name: "Figma",      slug: "figma",             color: "F24E1E", cat: "Tools" },
+  // Languages
+  { name: "C++",         slug: "cplusplus",        color: "00599C", cat: "Languages" },
+  { name: "HTML5",       slug: "html5",             color: "E34F26", cat: "Languages" },
+  { name: "CSS3",        slug: "css3",              color: "1572B6", cat: "Languages" },
+  { name: "JavaScript",  slug: "javascript",        color: "F7DF1E", cat: "Languages" },
+  { name: "TypeScript",  slug: "typescript",        color: "3178C6", cat: "Languages" },
+
+  // Frontend
+  { name: "React",       slug: "react",             color: "61DAFB", cat: "Frontend" },
+  { name: "Next.js",     slug: "nextdotjs",         color: "FFFFFF", cat: "Frontend" },
+  { name: "Tailwind",    slug: "tailwindcss",       color: "06B6D4", cat: "Frontend" },
+  { name: "Redux",       slug: "redux",             color: "764ABC", cat: "Frontend" },
+
+  // Backend
+  { name: "Node.js",     slug: "nodedotjs",         color: "5FA04E", cat: "Backend" },
+  { name: "Express",     slug: "express",           color: "FFFFFF", cat: "Backend" },
+
+  // Database
+  { name: "MongoDB",     slug: "mongodb",           color: "47A248", cat: "Database" },
+
+  // Tools
+  { name: "Git",         slug: "git",               color: "F05032", cat: "Tools" },
+  { name: "GitHub",      slug: "github",            color: "FFFFFF", cat: "Tools" },
+  { name: "VS Code",     slug: "visualstudiocode",  color: "007ACC", cat: "Tools" },
+  { name: "Postman",     slug: "postman",           color: "FF6C37", cat: "Tools" },
+  { name: "Vercel",      slug: "vercel",            color: "FFFFFF", cat: "Tools" },
+  { name: "npm",         slug: "npm",               color: "CB3837", cat: "Tools" },
 ];
 
 const techCategories = ["All", "Frontend", "Backend", "Data", "Infra", "Tools"] as const;
@@ -47,16 +50,19 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
     setTilt({ x: -py * 14, y: px * 14 });
   };
 
+  const rotateDir = index % 2 === 0 ? -10 : 10;
+
   return (
     <motion.div
+      id="stack"
       layout
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={() => setTilt({ x: 0, y: 0 })}
-      initial={{ opacity: 0, y: 24, scale: 0.9 }}
-      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      initial={{ opacity: 0, y: 24, scale: 0.9, rotate: rotateDir }}
+      animate={inView ? { opacity: 1, y: 0, scale: 1, rotate: 0 } : {}}
       exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ delay: index * 0.04, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ delay: index * 0.04, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
       style={{ perspective: 800, minWidth: 0 }}
       className="group relative w-full"
     >
@@ -115,13 +121,31 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
               className="absolute inset-0 rounded-xl opacity-20 blur-md transition-opacity group-hover:opacity-60"
               style={{ background: `#${tech.color}` }}
             />
-            <img
-              src={`https://cdn.simpleicons.org/${tech.slug}/${tech.color}`}
-              alt={tech.name}
-              loading="lazy"
-              className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
-              draggable={false}
-            />
+            {tech.slug === "css3" ? (
+              <img
+                src="https://skillicons.dev/icons?i=css"
+                alt={tech.name}
+                loading="lazy"
+                className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
+                draggable={false}
+              />
+            ) : tech.slug === "visualstudiocode" ? (
+              <img
+                src="https://skillicons.dev/icons?i=vscode"
+                alt={tech.name}
+                loading="lazy"
+                className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
+                draggable={false}
+              />
+            ) : (
+              <img
+                src={`https://cdn.simpleicons.org/${tech.slug}/${tech.color}`}
+                alt={tech.name}
+                loading="lazy"
+                className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
+                draggable={false}
+              />
+            )}
           </motion.div>
 
           <div
@@ -148,56 +172,60 @@ export default function StackSection() {
   const inView = useInView(ref, { once: true, margin: "-15%" });
   const filtered = filter === "All" ? techs : techs.filter((t) => t.cat === filter);
 
-  return (
-    <section id="stack" className="relative px-6 py-32 bg-[#080c10]">
-      <div className="max-w-7xl mx-auto">
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const orb1X = useTransform(scrollYProgress, [0, 1], [-60, 60]);
+  const orb1Y = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+  const orb2X = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const orb2Y = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
+  return (
+    <section ref={sectionRef} id="stack" className="relative px-6 py-32 bg-[#080c10] overflow-hidden">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16 max-w-2xl">
-          <p className="text-cyan-400 text-sm font-mono tracking-widest mb-2">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+            className="text-cyan-400 text-sm font-mono tracking-widest mb-2"
+          >
             // STACK
-          </p>
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-2">
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-5xl md:text-6xl font-bold text-white mb-2"
+          >
             My Tech Stack.
-          </h2>
-          <p className="mt-5 text-lg text-gray-400">
-           A collection of tools I use to build modern web applications.
-          </p>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-5 text-lg text-gray-400"
+          >
+            A collection of tools I use to build modern web applications.
+          </motion.p>
         </div>
 
-        {/* Ambient orbs */}
+        {/* Ambient orbs — drift with scroll */}
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute left-1/4 top-1/3 h-72 w-72 rounded-full bg-cyan-400/10 blur-[120px]" />
-          <div className="absolute right-1/4 bottom-1/4 h-72 w-72 rounded-full bg-purple-500/10 blur-[120px]" />
-        </div>
-
-        {/* Filter pills */}
-        <div className="mb-10 flex flex-wrap items-center justify-center gap-2">
-          {techCategories.map((c) => {
-            const active = filter === c;
-            return (
-              <button
-                key={c}
-                onClick={() => setFilter(c)}
-                className={`group relative rounded-full px-4 py-2 text-xs font-medium tracking-wide transition-all ${
-                  active ? "text-black" : "text-gray-400 hover:text-white"
-                }`}
-              >
-                {active && (
-                  <motion.span
-                    layoutId="tech-filter-pill"
-                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                    className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500"
-                    style={{ boxShadow: "0 0 24px -4px rgba(34,211,238,0.6)" }}
-                  />
-                )}
-                {!active && (
-                  <span className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-[#0d1117]/40 backdrop-blur-sm" />
-                )}
-                {c}
-              </button>
-            );
-          })}
+          <motion.div
+            style={{ x: orb1X, y: orb1Y }}
+            className="absolute left-1/4 top-1/3 h-72 w-72 rounded-full bg-cyan-400/10 blur-[120px]"
+          />
+          <motion.div
+            style={{ x: orb2X, y: orb2Y }}
+            className="absolute right-1/4 bottom-1/4 h-72 w-72 rounded-full bg-purple-500/10 blur-[120px]"
+          />
         </div>
 
         {/* Cards Grid */}
@@ -212,9 +240,6 @@ export default function StackSection() {
             ))}
           </AnimatePresence>
         </div>
-
-       
-
       </div>
     </section>
   );

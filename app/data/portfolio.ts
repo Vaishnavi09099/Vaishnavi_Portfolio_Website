@@ -3,8 +3,8 @@
 export const personalInfo = {
   name: "Vaishnavi Rajawat",
   initials: "VR",
-  tagline: "Full Stack Developer & B.Tech CSE Student",
-  subtitle: "I design and ship high-performance products end-to-end — from beautiful interfaces to resilient distributed systems serving millions of users.",
+  tagline: "From Concept to Code",
+  subtitle: "I'm a full-stack developer passionate about building modern, scalable web applications. I enjoy creating seamless user experiences, developing robust backend systems, and turning ideas into impactful digital products.",
   location: "Ghaziabad, India",
   email: "Vaishnavi09.099@gmail.com",
   available: true,
@@ -45,69 +45,61 @@ export const timeline = [
   },
   {
     year: "2025 — Present",
-    title: "Web Coordinator",
-    desc: "Leading web development activities at Kinesis Technical Society and mentoring juniors in web developent and Git/GitHub workflows.",
+    title: "Building Every Day",
+    desc: "Continuously improving my problem-solving skills, developing scalable full-stack applications, exploring AI-powered technologies, and learning something new every day.",
   },
 ];
 
-export const skillCategories = [
-  {
-    icon: "code",
-    color: "from-cyan-400 to-blue-500",
-    title: "Frontend",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Motion"],
-  },
-  {
-    icon: "database",
-    color: "from-green-400 to-emerald-500",
-    title: "Backend",
-    tags: ["Node.js", "Python", "Express", "REST APIs"],
-  },
-  {
-    icon: "cloud",
-    color: "from-purple-400 to-violet-500",
-    title: "Tools & DevOps",
-    tags: ["Git", "GitHub", "Vercel", "Docker"],
-  },
-  {
-    icon: "cpu",
-    color: "from-pink-400 to-rose-500",
-    title: "CS Fundamentals",
-    tags: ["DSA", "OOP", "DBMS", "OS"],
-  },
-];
 
-export const stackRow1 = [
-  "React", "TypeScript", "Next.js", "Tailwind", "Python",
-  "Node.js", "Git", "GitHub", "C++", "Express",
-];
-export const stackRow2 = [
-  "Vercel", "MongoDB", "PostgreSQL", "REST APIs",
-  "Docker", "Linux", "VS Code", "Figma",
-];
 
 export const projects = [
   {
-    category: "SaaS",
-    categoryColor: "text-cyan-400",
-    title: "Project One",
-    desc: "Short description of what this project does.",
-    tags: ["React", "Node.js"],
-    gradient: "from-cyan-900 to-blue-900",
-    link: "#",
+    category: "E-commerce",
+    img: "/projects/shopfinity.png",
+    categoryColor: "text-blue-400",
+    title: "Shopfinity",
+    desc: "Shopfinity is a comprehensive full-stack multi-vendor e-commerce platform built with Next.js and MongoDB. It supports three user roles (shoppers, vendors, admins) with features including order tracking with OTP verification, AI-powered chat assistance, secure Stripe/COD payments, and complete dashboards for managing products, vendors, and orders.",
+    tags: ["Next.js", "Node.js", "MongoDB", "Stripe","Cloudinary","FramerMotion","Redux"],
+    gradient: "from-blue-900 to-cyan-900",
+    link: "https://shopfinity-eta.vercel.app/",
+    github: "https://github.com/Vaishnavi09099/Shopfinity",
   },
   {
-    category: "AI",
-    categoryColor: "text-purple-400",
-    title: "Project Two",
-    desc: "Short description of what this project does.",
-    tags: ["Python", "OpenAI"],
-    gradient: "from-purple-900 to-pink-900",
-    link: "#",
+    category: "E-commerce",
+    img: "/projects/quickbasket.png",
+    categoryColor: "text-green-400",
+    title: "QuickBasket",
+    desc: "QuickBasket is a comprehensive full-stack grocery delivery platform built with Next.js and MongoDB. It supports three user roles (customers, admins, delivery personnel) with features including real-time order tracking, AI-powered chat assistance, secure Stripe payments, and a complete admin dashboard for managing groceries and orders.",
+    tags: ["Next.js", "Mongodb", "Redux","Socket.io","Express.js"],
+    gradient: "from-green-900 to-emerald-900",
+    link: "https://quickbasket-five.vercel.app/",
+    github: "https://github.com/Vaishnavi09099/QuickBasket",
+  },
+  {
+    category: "Utility",
+    img: "/projects/anonlink.png",
+    categoryColor: "text-yellow-400",
+    title: "AnonLink",
+    desc: "Real-time anonymous video chat web app that instantly pairs two random users for live conversations. Built using Socket.IO for matchmaking and ZegoCloud for seamless video streaming, it enables fast, private, and smooth peer-to-peer connections with a simple join-and-chat experience and one-click next session switching.",
+    tags: ["Next.js", "ZegoCloud", "Tailwind CSS","FramerMotion"],
+    gradient: "from-yellow-900 to-amber-900",
+    link: "https://anon-link-seven.vercel.app/",
+    github: "https://github.com/Vaishnavi09099/AnonLink",
+  },
+  {
+    category: "Social",
+    img: "/projects/meetora.png",
+    categoryColor: "text-pink-400",
+    title: "Meetora",
+    desc: "A minimal video conferencing app built with React & ZegoCloud. Enter a room ID to instantly join or create a video call — no account needed.",
+    tags: ["React", "ZegoCloud"],
+    gradient: "from-pink-900 to-rose-900",
+    link: "https://meetora-seven.vercel.app/",
+    github: "https://github.com/Vaishnavi09099/Meetora",
   },
 ];
 
-export const projectFilters = ["All", "SaaS", "AI", "Mobile", "Open Source"];
+
 
 export const experiences = [
   {
@@ -158,7 +150,7 @@ export const education = [
     institution: "KIET Deemed to be University",
     stream: "Computer Science & Engineering",
     duration: "2024 — 2028",
-    score: "CGPA 8.97 / 10",
+    score: "CGPA 8.62 / 10",
     gradient: "from-slate-800 to-slate-900",
   },
   {
@@ -183,45 +175,13 @@ export const education = [
   },
 ];
 
-export const codingProfiles = [
-  {
-    platform: "LeetCode",
-    handle: "@Vaishnavi09099",
-    stats: "X+ problems • XXXX rating",
-    link: "https://leetcode.com/u/Vaishnavi09099/",
-  },
-  {
-    platform: "GeeksforGeeks",
-    handle: "@vaishnaviw6r",
-    stats: "Institute Rank X • XXX+ solved",
-    link: "https://www.geeksforgeeks.org/profile/vaishnaviw6r",
-  },
-  {
-    platform: "Codeforces",
-    handle: "@Vaishnavi0909",
-    stats: "Pupil • Max XXXX",
-    link: "https://codeforces.com/profile/Vaishnavi0909",
-  },
-  {
-    platform: "CodeChef",
-    handle: "@flash_map_13",
-    stats: "X★ • Max XXXX",
-    link: "https://www.codechef.com/users/flash_map_13",
-  },
-];
 
-export const codingStats = [
-  { value: "XXX+", label: "Problems Solved", sub: "LeetCode • GFG • CF" },
-  { value: "XXXX", label: "LeetCode Rating", sub: "Top X% globally" },
-  { value: "X.Xk", label: "Contest Rank", sub: "Codeforces" },
-  { value: "XX", label: "Day Streak", sub: "Consistency matters" },
-];
 
 export const certifications = [
   {
     issuer: "AMAZON WEB SERVICES",
     title: "AWS Data Engineer Associate",
-    year: "2025",
+    year: "2026",
     image: "/certificates/data_engineer.png",
     link: "#",
     gradient: "from-cyan-950 to-slate-900",
@@ -229,7 +189,7 @@ export const certifications = [
   {
     issuer: "AMAZON WEB SERVICES",
     title: "AWS Cloud Practitioner",
-    year: "2025",
+    year: "2026",
     image: "/certificates/cloud_practitioner.png",
     link: "#",
     gradient: "from-slate-900 to-indigo-950",

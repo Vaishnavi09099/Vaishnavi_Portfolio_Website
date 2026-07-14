@@ -8,30 +8,30 @@ import ExperienceSection from "./components/ExperienceSection";
 import StackSection from "./components/StackSection";
 import AchievementsSection from "./components/AchievementSection";
 import EducationSection from "./components/Education";
-import CodingSection from "./components/CodingSection";
+
 import CertsSection from "./components/CertsSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
-Navbar
+
 
 
 export default function Home() {
   return (
-    <main className="bg-[#05070E] min-h-screen">
-       <Navbar />
+    <main className="bg-[#05070E]">
+      <Navbar />
       <HeroSection />
-      <AboutSection />
-     
-      <WorkSection />
-      <ExperienceSection />
-      <StackSection />
-      <AchievementsSection />
-      <EducationSection />
-      <CodingSection />
-      <CertsSection />
-      <ContactSection />
-      {/* baaki aate rahenge */}
-     <Footer />
+      <div className="relative z-10 bg-[#05070E]">
+        <AboutSection />
+        <WorkSection />
+        <ExperienceSection />
+        <StackSection />
+        <AchievementsSection />
+        <EducationSection />
+      
+        <CertsSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </main>
   );
 }
