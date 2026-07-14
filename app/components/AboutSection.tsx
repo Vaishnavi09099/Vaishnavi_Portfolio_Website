@@ -45,13 +45,13 @@ export default function AboutSection() {
               src={personalInfo.photo}
               alt={personalInfo.name}
               fill
-              className="object-cover object-top opacity-90 relative z-100"
+              className="object-cover object-top opacity-90 relative z-10"
             />
 
             
 
             {/* Bottom info — static, no entrance animation needed since parent already animates */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/80 to-transparent z-20">
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-cyan-400 font-mono text-xs">$</span>
                 <span className="text-cyan-400 font-mono text-xs">
