@@ -34,7 +34,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
-            className="relative rounded-2xl overflow-hidden bg-[#0d1117] border border-white/10 h-[100px]"
+            className="relative rounded-2xl overflow-hidden bg-[#0d1117] border border-white/10 h-[400px]"
           >
             {/* Static blobs — no animation, cheap one-time paint */}
             <div className="absolute -top-8 -left-8 w-36 h-36 bg-teal-500/20 rounded-full blur-3xl pointer-events-none" />
