@@ -67,11 +67,11 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
         animate={{ rotateX: tilt.x, rotateY: tilt.y }}
         transition={{ type: "spring", stiffness: 200, damping: 18 }}
         style={{ transformStyle: "preserve-3d" }}
-        className="relative aspect-square w-full overflow-hidden rounded-2xl p-4 bg-[#0d1117] border border-white/10"
+        className="relative aspect-square w-full overflow-hidden rounded-xl p-3 bg-[#0d1117] border border-white/10"
       >
         {/* Default subtle glow — chota, always visible */}
         <div
-          className="pointer-events-none absolute inset-0 rounded-2xl transition-opacity duration-500"
+          className="pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-500"
           style={{
             background: `radial-gradient(circle at 50% 50%, #${tech.color}25, transparent 50%)`,
           }}
@@ -79,7 +79,7 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
 
         {/* Hover glow — bada aur bright */}
         <div
-          className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           style={{
             background: `radial-gradient(circle at 50% 50%, #${tech.color}60, transparent 65%)`,
           }}
@@ -87,7 +87,7 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
 
         {/* Conic border on hover */}
         <div
-          className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           style={{
             background: `conic-gradient(from 0deg, transparent, #${tech.color}40, transparent 30%)`,
             WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
@@ -97,25 +97,25 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
           }}
         />
 
-        {/* Dot grid bg */}
+        {/* Dot grid bg — increased opacity */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
+          className="pointer-events-none absolute inset-0 opacity-[0.15]"
           style={{
-            backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)",
-            backgroundSize: "12px 12px",
+            backgroundImage: "radial-gradient(circle, currentColor 0.5px, transparent 0.5px)",
+            backgroundSize: "16px 16px",
           }}
         />
 
         {/* Icon + Name */}
-        <div className="relative flex h-full flex-col items-center justify-center gap-2.5">
+        <div className="relative flex h-full flex-col items-center justify-center gap-1.5">
           <motion.div
             whileHover={{ scale: 1.15, rotate: [0, -6, 6, 0] }}
             transition={{ duration: 0.6 }}
             style={{ transform: "translateZ(30px)" }}
-            className="relative flex h-12 w-12 items-center justify-center"
+            className="relative flex h-10 w-10 items-center justify-center"
           >
             <div
-              className="absolute inset-0 rounded-xl opacity-20 blur-md transition-opacity group-hover:opacity-60"
+              className="absolute inset-0 rounded-lg opacity-20 blur-md transition-opacity group-hover:opacity-60"
               style={{ background: `#${tech.color}` }}
             />
            {tech.slug === "css3" ? (
@@ -123,7 +123,7 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
     src="https://skillicons.dev/icons?i=css"
     alt={tech.name}
     loading="lazy"
-    className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
+    className="relative h-7 w-7 transition-transform duration-500 group-hover:scale-110"
     draggable={false}
   />
 ) : tech.slug === "visualstudiocode" ? (
@@ -131,7 +131,7 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
     src="https://skillicons.dev/icons?i=vscode"
     alt={tech.name}
     loading="lazy"
-    className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
+    className="relative h-7 w-7 transition-transform duration-500 group-hover:scale-110"
     draggable={false}
   />
 ) : (
@@ -139,7 +139,7 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
     src={`https://cdn.simpleicons.org/${tech.slug}/${tech.color}`}
     alt={tech.name}
     loading="lazy"
-    className="relative h-9 w-9 transition-transform duration-500 group-hover:scale-110"
+    className="relative h-7 w-7 transition-transform duration-500 group-hover:scale-110"
     draggable={false}
   />
 )}
@@ -147,7 +147,7 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
 
           <div
             style={{ transform: "translateZ(20px)" }}
-            className="text-center font-mono text-[11px] font-medium tracking-wide text-gray-400 transition-colors group-hover:text-white"
+            className="text-center font-mono text-[9px] font-medium tracking-wide text-gray-400 transition-colors group-hover:text-white"
           >
             {tech.name}
           </div>
@@ -155,7 +155,7 @@ function TechCard({ tech, index, inView }: { tech: Tech; index: number; inView: 
 
         {/* Corner dot */}
         <div
-          className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full opacity-40 transition-opacity group-hover:opacity-100"
+          className="absolute right-2 top-2 h-1 w-1 rounded-full opacity-40 transition-opacity group-hover:opacity-100"
           style={{ background: `#${tech.color}`, boxShadow: `0 0 8px #${tech.color}` }}
         />
       </motion.div>
@@ -197,8 +197,8 @@ export default function StackSection() {
         {/* Cards Grid */}
         <div
           ref={ref}
-          className="gap-3 md:gap-4"
-          style={{ display: "grid", gridTemplateColumns: "repeat(6, minmax(0, 1fr))" }}
+          className="gap-2 md:gap-3"
+          style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))" }}
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((t, i) => (
