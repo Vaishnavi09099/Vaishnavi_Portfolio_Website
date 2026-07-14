@@ -18,7 +18,7 @@ export default function AboutSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
           className="text-cyan-400 text-sm font-mono tracking-widest mb-2"
         >
@@ -28,7 +28,7 @@ export default function AboutSection() {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-5xl font-bold mt-5 text-white mb-2"
         >
@@ -38,7 +38,7 @@ export default function AboutSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-gray-400 text-lg mb-16 mt-5"
         >
@@ -50,7 +50,7 @@ export default function AboutSection() {
           <motion.div
             initial={{ opacity: 0, scale: 0.85, rotate: -3 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ scale: 1.02 }}
             className="relative rounded-2xl overflow-hidden bg-[#0d1117] border border-white/10 h-[200px]"
@@ -59,7 +59,7 @@ export default function AboutSection() {
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.4 }}
               className="absolute -top-8 -left-8 w-36 h-36 bg-teal-500/20 rounded-full blur-3xl pointer-events-none"
             />
@@ -76,7 +76,7 @@ export default function AboutSection() {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur text-xs text-white border border-white/10"
             >
@@ -87,7 +87,7 @@ export default function AboutSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent"
             >
@@ -121,7 +121,7 @@ export default function AboutSection() {
             <motion.div
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
-              viewport={{ once: false, margin: "-50px" }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               style={{ originY: 0 }}
               className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-cyan-400/50 via-purple-400/30 to-transparent"
@@ -132,7 +132,7 @@ export default function AboutSection() {
                   key={i}
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, margin: "-50px" }}
+                  viewport={{ once: true, margin: "-50px" }}
                   transition={{
                     duration: 0.5,
                     delay: i * 0.15,
@@ -144,7 +144,7 @@ export default function AboutSection() {
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.15 + 0.2, type: "spring", stiffness: 300 }}
                     className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-cyan-400"
                   />
